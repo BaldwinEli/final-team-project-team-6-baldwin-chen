@@ -13,9 +13,22 @@ from bs4 import BeautifulSoup
 # List to store response
 forecast = []
 
-## Prompt the user to provide the latitude and longitude for the location they would like to check the forecast for
+## Prompt the user to provide the latitude and longitude for the location they would like to check the forecast for. Specify the format of the input the user is being asked for so they will presumably input the value correctly.
 lat = input("Type in the value of the latitutde of the place you want to get the forecast for in decimal degrees; to four decimal places; in quotations, e.g. '42.2634', then press enter: ")
 lon = input("Type in the value of the longitude e.g. '-71.8022' then press enter: ")
+
+#check if lat and lon are strings. If they are, do nothing, if they are not, convert to string.
+if isinstance(lat, str):
+  #do nothing, but apparently there needs to be something here for the if statement to work
+  x = 5
+else:
+    lat = str(lat)
+
+if isinstance(lon, str):
+  #do nothing, but apparently there needs to be something here for the if statement to work
+  x = 6
+else:
+  lon = str(lon)
 
 # Create url for the requested location through string concatenation
 url = 'https://forecast.weather.gov/MapClick.php?lat='+lat+"&lon="+lon
@@ -49,4 +62,7 @@ for day in forecast:
   day = day.replace("Low", " Low")
   day = day.replace("Likely", " Likely")
   day = day.replace("then", "then ")
+  day = day.replace("Sunnythen", "Sunny then")
+  # convert to uppercase
+  day = day.upper()
   print day
