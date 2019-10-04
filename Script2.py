@@ -1,93 +1,116 @@
+
 import math
 import sys
 
 #INPUT THE PARAMETERS
-print('please choose the shape of the base(trangle/cube/circle):')
+#the shape of the place
+print('please choose the shape of the base(triangle/square/circle):')
 x=raw_input()
-if x!='trangle' or x!='cube' or x!='circle':
-    print('The input is wrong')
-    sys.exit(0)#stop the routine
+#if the input is wrong prompt the user to change the input
+while x!='circle' and x != 'triangle' and x!= 'square':
+  print('You have entered an invalid word, please try again, this is case sensitive')
+  x=raw_input()
+
+#the units of the shape
 print('please choose the unit(inch/foot/meter) of input:')
 y=raw_input()
-if y!='inch' or y!='foot' or y!='meter':
-    print('The input is wrong')
-    sys.exit(0)#stop the routine
-print('please choose the unit(cubic foot/gallon/cubic meter) of output:')
-z=raw_input()
-if z!='cubic foot' or z!='gallon' or z!='cubic meter':
-    print('The input is wrong')
-    sys.exit(0)#stop the routine
+while y!='inch' and y!='foot' and y!='meter':
+    print('You have entered an invalid word, please try again, this is case sensitive')
+    y=raw_input()
 
-#DEFINE THE CALCULATION OF DIFFERENT SHAPES
-def trangle(a,b,h):
-    area=int(a)*int(b)/2
-    v=area*int(h)
+#the units of the output
+print('please choose the unit(cubic feet/gallons/cubic meters) of output:')
+z=raw_input()
+while z!='cubic feet' and z!='gallons' and z!='cubic meters':
+    print('You have entered an invalid word, please try again, this is case sensitive')
+    z=raw_input()
+    
+
+#DEFINE THE CALCULATION OF AREA AND VOLUME FOR DIFFERENT SHAPES. v is volume
+def triangle(a,b,c,h):
+    #a,b,c are sides of the triangle
+    a = float(a)
+    b = float(b)
+    c = float(c)
+    h = float(h)
+    temp = math.sqrt(-a**4+2*(a*b)**2+2*(a*c)**2-b**4+2*(b*c)**2-c**4)
+    v = (h/4)*temp
     return v
 
-def cube(a,b,h):
-    area=int(a)*int(b)
-    v=area*int(h)
+def square(a,b,h):
+    #a and b are sides h is height
+    area=float(a)*float(b)
+    v=area*float(h)
     return v
 
 def circle(r,h):
-    area=int(r)**2*math.pi
-    v=area*int(h)
+    #r is radius, h is height
+    area=float(r)**2*math.pi
+    v=area*float(h)
     return v
 
-#DEFINE UNIT CONVERSION
+#DEFINE UNIT CONVERSION FOR EACH POSSIBLE COMBINATION OF UNITS
 def unitchange(volume_raw):
-    if y=='foot' and z=='cubic foot':
+    if y=='foot' and z=='cubic feet':
+       #no conversion necessary
         volume_change= volume_raw
         return volume_change
-    elif y=='inch' and z=='cubic foot':
+    elif y=='inch' and z=='cubic feet':
+        #conversion necessary
         volume_change = volume_raw*0.0005787
         return volume_change
-    elif y=='meter' and z=='cubic foot':
+    elif y=='meter' and z=='cubic feet':
         volume_change = volume_raw*35.31467
         return volume_change
-    elif y=='inch' and z=='gallon':
+    elif y=='inch' and z=='gallons':
         volume_change = volume_raw*0.004329
         return volume_change
-    elif y=='foot' and z=='gallon':
+    elif y=='foot' and z=='gallons':
         volume_change = volume_raw*7.4805
         return volume_change
-    elif y=='meter' and z=='gallon':
+    elif y=='meter' and z=='gallons':
         volume_change = volume_raw*264.17
         return volume_change
-    elif y=='meter' and z=='cubic meter':
+    elif y=='meter' and z=='cubic meters':
         volume_change = volume_raw
         return volume_change
-    elif y=='inch' and z=='cubic meter':
+    elif y=='inch' and z=='cubic meters':
         volume_change = volume_raw*0.000016387
         return volume_change
-    elif y=='foot' and z=='cubic meter':
+    elif y=='foot' and z=='cubic meters':
         volume_change = volume_raw*0.02832
         return volume_change
+    #the input should not be wrong at this point, but just in case...
     else:
         print('The input is wrong')
 
 #MAIN ROUTINE
-if x=='trangle':
-    print('please input the base:')
+#For triangle
+if x=='triangle':
+   #ask user to input parameters
+    print('please input the length of side 1:')
     a=raw_input()
-    print('please input the base:')
+    print('please input the length of side 2:')
+    b=raw_input()
+    print('please input the length of side 3:')
+    c=raw_input()
+    print('please input the height:')
+    h=raw_input()
+    #calculate volume in input units
+    volume_raw=triangle(a,b,c,h)
+    #give output with unit conversion
+    print ('The volume is '+str(unitchange(volume_raw))+' '+str(z))
+#For square
+elif x=='square':
+    print('please input the length:')
+    a=raw_input()
+    print('please input the width:')
     b=raw_input()
     print('please input the height:')
     h=raw_input()
-    volume_raw=trangle(a,b,h)
+    volume_raw=square(a,b,h)
     print ('The volume is '+str(unitchange(volume_raw))+' '+str(z))
-    
-
-elif x=='cube':
-    print('please input the base:')
-    a=raw_input()
-    print('please input the base:')
-    b=raw_input()
-    print('please input the height:')
-    h=raw_input()
-    volume_raw=cube(a,b,h)
-    print ('The volume is '+str(unitchange(volume_raw))+' '+str(z))
-
+#For circle
 elif x=='circle':
     print('please input the radius:')
     r=raw_input()
@@ -98,4 +121,4 @@ elif x=='circle':
 
 else:
     print('The input is wrong.')
-    sys.exit(0)#stop the routiine
+    sys.exit(0)#stop the routine
