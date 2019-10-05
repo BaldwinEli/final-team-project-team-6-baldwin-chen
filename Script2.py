@@ -1,4 +1,15 @@
+"""
+Final Project Assignment 2
+Team 6 Baldwin, Eli; Chen, Zihan
+Time:
+Date: 10/05/2019
+IDCE302
+Description: This code calculates the volume of rain water runoff from a place. The user inputs the shape of the place for which they want to calculate the runoff.
+Then the user is prompted to enter the units of the input and the units they would like for the ouptut. The user is then prompted to enter a series of measurements based on the shape they input earlier.
+The code then calculates and returns the volume of runoff.
+"""
 
+#import necessary modules
 import math
 import sys
 
@@ -28,7 +39,7 @@ while z!='cubic feet' and z!='gallons' and z!='cubic meters':
 
 #DEFINE THE CALCULATION OF AREA AND VOLUME FOR DIFFERENT SHAPES. v is volume
 def triangle(a,b,c,h):
-    #a,b,c are sides of the triangle
+    #a,b,c are sides of the triangle. h is the height of teh triangular prism.
     a = float(a)
     b = float(b)
     c = float(c)
