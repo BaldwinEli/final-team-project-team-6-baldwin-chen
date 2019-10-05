@@ -1,5 +1,7 @@
 '''
 # Assignment title: Final Project- Web-scraping Weather Forecast
+# Team 6 Baldwin, Eli; Chen, Zihan
+# Time: 56 minutes
 # Date: 10/01/2019
 # Description: The script web-scrapes the weather.gov website to extract the 5-Day weather forecast for a given location
 # Inputs: Latitude & Longitude in Decimal Degrees
