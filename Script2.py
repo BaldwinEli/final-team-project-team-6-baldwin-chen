@@ -41,7 +41,7 @@ while z!='cubic feet' and z!='gallons' and z!='cubic meters':
 
 #DEFINE THE CALCULATION OF AREA AND VOLUME FOR DIFFERENT SHAPES. v is volume
 def triangle(a,b,c,h):
-    #a,b,c are sides of the triangle. h is the height of teh triangular prism.
+    #a,b,c are sides of the triangle. h is the height of the triangular prism.
     a = float(a)
     b = float(b)
     c = float(c)
