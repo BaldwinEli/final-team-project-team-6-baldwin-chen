@@ -4,6 +4,8 @@ Team 6 Baldwin, Eli; Chen, Zihan
 Time:20min(first ver.)+60min(second ver.)
 Date: 10/05/2019
 IDCE302
+Input: the shape of base, the unit of input, the unit of output, the parameters of the base.
+Output: the volume of the solid figure.
 Description: This code calculates the volume of rain water runoff from a place. The user inputs the shape of the place for which they want to calculate the runoff.
 Then the user is prompted to enter the units of the input and the units they would like for the ouptut. The user is then prompted to enter a series of measurements based on the shape they input earlier.
 The code then calculates and returns the volume of runoff.
