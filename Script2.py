@@ -1,7 +1,7 @@
 """
 Final Project Assignment 2
 Team 6 Baldwin, Eli; Chen, Zihan
-Time:
+Time:20min(first ver.)+60min(second ver.)
 Date: 10/05/2019
 IDCE302
 Description: This code calculates the volume of rain water runoff from a place. The user inputs the shape of the place for which they want to calculate the runoff.
