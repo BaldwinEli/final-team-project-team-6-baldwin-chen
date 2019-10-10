@@ -15,6 +15,15 @@ from bs4 import BeautifulSoup
 # List to store response
 forecast = []
 
+'''
+# Option 1: does not require the isinstance() function
+# Input is automatically converted to a string
+lat = raw_input('Type in the latitude: ')
+lon = raw_input('Type in the longitude: ')
+'''
+
+# OR
+# Option 2
 ## Prompt the user to provide the latitude and longitude for the location they would like to check the forecast for. Specify the format of the input the user is being asked for so they will presumably input the value correctly.
 lat = input("Type in the value of the latitutde of the place you want to get the forecast for in decimal degrees; to four decimal places; in quotations, e.g. '42.2634', then press enter: ")
 lon = input("Type in the value of the longitude e.g. '-71.8022' then press enter: ")
@@ -22,13 +31,13 @@ lon = input("Type in the value of the longitude e.g. '-71.8022' then press enter
 #check if lat and lon are strings. If they are, do nothing, if they are not, convert to string.
 if isinstance(lat, str):
   #do nothing, but apparently there needs to be something here for the if statement to work
-  x = 5
+  pass # do nothing
 else:
     lat = str(lat)
 
 if isinstance(lon, str):
   #do nothing, but apparently there needs to be something here for the if statement to work
-  x = 6
+  pass # do nothing
 else:
   lon = str(lon)
 
